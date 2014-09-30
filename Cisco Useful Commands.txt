@@ -1,0 +1,43 @@
+Cisco Useful Commands
+Compiled by: techis
+
+
+line console 0 
+	allows for editing on console configs
+
+logging sync
+	sends log message and brings command line down with current working command intact
+
+no logging console
+	turns off console messages
+
+hostname
+	Change the name of the router
+
+show run config (show running configuration)
+	show the current running configuration
+
+copy run start
+	save the current running configuration to the start up configuration
+
+erase start
+	clear out the starting configuration
+
+show ip route
+	shows the routing table
+
+enable
+	basically sudo
+
+exec-time 0
+	reset the timeout on the router
+
+show int {interface} (show interface {interface})
+	shows information about the specified interface; if no interface is specified, it will display info about all interfaces
+
+show controllers {interface}
+	provides information about what is connected to what on the router
+		EX: show controllers s0/0 will output what serial cable is connected to it and speeds as well as clock speed
+
+ip add (ip address) {address} {subnet mask}
+	allows for assignment of ip addresses
