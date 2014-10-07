@@ -1,7 +1,6 @@
 Cisco Useful Commands
 Compiled by: techis
 
-
 line console 0 
 	allows for editing on console configs
 
@@ -41,3 +40,17 @@ show controllers {interface}
 
 ip add (ip address) {address} {subnet mask}
 	allows for assignment of ip addresses
+
+router [rip/eigrp/ospf]
+	Sets the routing configuration for the router. 
+
+network {ip address} {subnet (255.255.0 for rip and eigrp; 0.0.255 for ospf)}
+	Adds the network to the list of connections in the routing table. 
+
+FIREWALL STUFF
+
+access-list {integer # 1-99} [permit/deny] {address source} {address destination}
+	Creates rule based access to source or destination addresses. 
+
+access-group {access-list #} [in/out]
+	Applies the rules to a certain interface based on inbound or outbound packets. 
