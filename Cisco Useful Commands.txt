@@ -47,6 +47,9 @@ router [rip/eigrp/ospf]
 network {ip address} {subnet (255.255.0 for rip and eigrp; 0.0.255 for ospf)}
 	Adds the network to the list of connections in the routing table. 
 
+ip route {destination IP} {destination subnet} {IP of next hop (likely the address of the port on the next router)}
+	allows you to manually configure a static route.
+
 FIREWALL STUFF
 
 access-list {integer # 1-99} [permit/deny] {address source} {address destination}
