@@ -1,59 +1,89 @@
 Cisco Useful Commands
 Compiled by: techis
 
-line console 0 
-	allows for editing on console configs
+#####################################################################################################################################
 
-logging sync
-	sends log message and brings command line down with current working command intact
+Basic Commands
 
-no logging console
-	turns off console messages
+	line console 0 
+		allows for editing on console configs
 
-hostname
-	Change the name of the router
+	logging sync
+		sends log message and brings command line down with current working command intact
 
-show run config (show running configuration)
-	show the current running configuration
+	no logging console
+		turns off console messages
 
-copy run start
-	save the current running configuration to the start up configuration
+	hostname
+		Change the name of the router
 
-erase start
-	clear out the starting configuration
+	show run (start) config (show running configuration)
+		show the current running configuration or the starting configuration
+ 
+	copy run start
+		save the current running configuration to the start up configuration
 
-show ip route
-	shows the routing table
+	erase start
+		clear out the starting configuration
 
-enable
-	basically sudo
+	show ip route
+		shows the routing table
 
-exec-time 0
-	reset the timeout on the router
+	enable			
+		basically sudo
 
-show int {interface} (show interface {interface})
-	shows information about the specified interface; if no interface is specified, it will display info about all interfaces
+	exec-time 0
+		reset the timeout on the router
 
-show controllers {interface}
-	provides information about what is connected to what on the router
-		EX: show controllers s0/0 will output what serial cable is connected to it and speeds as well as clock speed
+	show int {interface} (show interface {interface})
+		shows information about the specified interface; if no interface is specified, it will display info about all interfaces
 
-ip add (ip address) {address} {subnet mask}
-	allows for assignment of ip addresses
+	show controllers {interface}
+		provides information about what is connected to what on the router
+			EX: show controllers s0/0 will output what serial cable is connected to it and speeds as well as clock speed
 
-router [rip/eigrp/ospf]
-	Sets the routing configuration for the router. 
+	ip add (ip address) {address} {subnet mask}
+		allows for assignment of ip addresses
 
-network {ip address} {subnet (255.255.0 for rip and eigrp; 0.0.255 for ospf)}
-	Adds the network to the list of connections in the routing table. 
+	router [rip/eigrp/ospf]
+		Sets the routing configuration for the router. 
 
-ip route {destination IP} {destination subnet} {IP of next hop (likely the address of the port on the next router)}
-	allows you to manually configure a static route.
+	network {ip address} {subnet (255.255.0 for rip and eigrp; 0.0.255 for ospf)}
+		Adds the network to the list of connections in the routing table. 
 
-FIREWALL STUFF
+	ip route {destination IP} {destination subnet} {IP of next hop (likely the address of the port on the next router)}
+		allows you to manually configure a static route.
 
-access-list {integer # 1-99} [permit/deny] {address source} {address destination}
-	Creates rule based access to source or destination addresses. 
+#####################################################################################################################################
 
-access-group {access-list #} [in/out]
-	Applies the rules to a certain interface based on inbound or outbound packets. 
+FIREWALL Commands
+
+	access-list {integer # 1-99} [permit/deny] {address source} {address destination}
+		Creates rule based access to source or destination addresses. 
+
+	access-group {access-list #} [in/out]
+		Applies the rules to a certain interface based on inbound or outbound packets. 
+
+#####################################################################################################################################
+
+VLAN Commands
+
+	vlan (1-4094) 
+		creates a vlan and adds the number
+
+	name (name)
+		allows you to name a vlan
+
+	no vlan (1-4094)
+		removes the corresponding vlan
+
+	switchport access vlan (1-4094)
+		assigns ports to a vlan
+
+	show vlan <breif> 
+		shows a list of vlans on the system, brief is optional
+
+	show vlan id (1-4094)
+		shows information related to the specified vlan
+
+#####################################################################################################################################
