@@ -54,6 +54,9 @@ Basic Commands
 	ip route {destination IP} {destination subnet} {IP of next hop (likely the address of the port on the next router)}
 		allows you to manually configure a static route.
 
+	do (command)
+		executes command if in config mode
+
 #####################################################################################################################################
 
 FIREWALL Commands
@@ -69,7 +72,7 @@ FIREWALL Commands
 VLAN Commands
 
 	vlan (1-4094) 
-		creates a vlan and adds the number
+		creates a vlan with the id of the number entered
 
 	name (name)
 		allows you to name a vlan
@@ -87,3 +90,32 @@ VLAN Commands
 		shows information related to the specified vlan
 
 #####################################################################################################################################
+
+TRUNKING COMMANDS
+	
+	switchport mode trunk
+		Enables unconditional trunking on the interface
+
+	switchport trunk encapsulation (dot1q/isl/negotiate)
+		sets the trunking protocol to be negotiated.
+
+	switchport trunk native vlan (vlan_id)
+		configures the vlan that is sending and recieving untagged traffic on the trunk port when the interface is in 802.1q mode
+
+	switchport trunk allowed vlan (all/add (vlan_id)/remove (vlan_id))
+		set which vlans are allowed/not allowed to communicate over the trunk. defaults to all vlans
+
+	switchport mode dynamic auto
+		enables automatic trunking discovery and configuration. The switch will use DTP to configure trunking
+
+	switchport mode dynamic desireable
+		enables dynamic trunking configuration. if connected, it will attempt to use the desired trunking protocol; if not it will communicate as normal
+
+	switchport mode access 
+		disable trunking configuration on the port and the port is set to access mode
+
+	switchport access vlan (vlan_id) 
+		assign an unused interface to the specified vlan
+
+	show interface <interface name> trunk
+		shows the interface trunking information (mode, encapsulation, trunking status, vlan assignments)
